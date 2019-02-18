@@ -1,0 +1,5 @@
+# 无雨世界表设置
+weather:
+  worlds:
+    - "world"
+    - "shengcun"
