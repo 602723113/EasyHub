@@ -1,5 +1,20 @@
+# EasyHub 综合设置
+
+# 一些特殊名词
+# true 打开
+# false 关闭
+# String 字符串
+# StringList 字符串列表
+# Int 整数
+# Double 小数
+# Boolean 属于true和false的爸爸
+
+
 # 无雨世界表设置
 weather:
+  # 无雨设置开关 可填 true/false
+  switch: true
+  # 无雨世界表 可填 StringList
   worlds:
     - "world"
     - "shengcun"
