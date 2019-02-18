@@ -1,0 +1,4 @@
+name: EasyHub
+main: cc.zoyn.easyhub.EasyHub
+version: 1.0.0
+author: Zoyn
