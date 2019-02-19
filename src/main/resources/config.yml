@@ -25,8 +25,8 @@ time:
   switch: true
   # 时间设定表
   # 格式: 世界名:时间
-  #   可填的时间: sub_rise, day, noon, sun_set, night, mid_night
+  #   可填的时间: sun_rise, day, noon, sun_set, night, mid_night
   #   它们分别是 日出, 白天, 中午, 日落, 夜晚, 午夜
   worlds:
-    - "world:sub_rise"
+    - "world:sun_rise"
     - "shengcun:noon"
