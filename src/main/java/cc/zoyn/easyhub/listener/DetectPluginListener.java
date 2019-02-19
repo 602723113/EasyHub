@@ -22,10 +22,12 @@ public class DetectPluginListener implements Listener {
 
     @EventHandler
     public void onPluginsCommands(PlayerCommandPreprocessEvent event) {
-        if (checkPluginsCommands.contains(event.getMessage())) {
-            event.getPlayer().sendMessage(message);
-            event.setCancelled(true);
-        }
+        checkPluginsCommands.forEach(s -> {
+            if (event.getMessage().contains(s)) {
+                event.getPlayer().sendMessage(message);
+                event.setCancelled(true);
+            }
+        });
     }
 
 }
