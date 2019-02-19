@@ -4,7 +4,7 @@
 ### 具体功能
 1. No Rain、Lock weather、always Day 
 - [x] 锁住天气
-- [ ] 保持白天
+- [x] 保持白天
 ---
 2. 事件相关
 - [ ] 取消伤害、掉落伤害
@@ -27,13 +27,13 @@
 4. [ ] Damage Control 控制玩家之间的互相伤害
 5. [ ] No mob 不生成怪物
 6. [ ] JoinItem 自定义加入大厅的物品
-7. [ ] Double Jump 二段跳
-8. [ ] Customize Join/leave Message 自定义加入与离开的信息（不同权限不同信息）
-9. [ ] Customize /help 自定义help信息
-10.	[ ] 显示/隐藏玩家（冷却）
-11.	[ ] Plugin hider 隐藏插件
+7. [ ] Customize Join/leave Message 自定义加入与离开的信息（不同权限不同信息）
+8. [ ] Customize /help 自定义help信息
+9. [ ] 显示/隐藏玩家（冷却）
+10. [x] Plugin hider 隐藏插件
 ---
 以下的可能不会做
--	[ ] Server Selector
--	[ ] Anti-Spam 设置禁词和打字的频率
--	[ ] LaunchPads 跳跳板（冷却）
+- [ ] Server Selector
+- [ ] Anti-Spam 设置禁词和打字的频率
+- [ ] LaunchPads 跳跳板（冷却）
+- [ ] Double Jump 二段跳
