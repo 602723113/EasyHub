@@ -1,5 +1,6 @@
 package cc.zoyn.easyhub;
 
+import cc.zoyn.easyhub.listener.DetectPluginListener;
 import cc.zoyn.easyhub.listener.WeatherListener;
 import cc.zoyn.easyhub.task.WorldTimeSetTask;
 import com.google.common.collect.Maps;
@@ -20,6 +21,7 @@ public class EasyHub extends JavaPlugin {
     private List<String> noRainWorlds;
     private Map<String, TimeType> timeSetWorlds = Maps.newHashMap();
     private WorldTimeSetTask timeSetTask;
+
 
     @Override
     public void onEnable() {
@@ -47,6 +49,11 @@ public class EasyHub extends JavaPlugin {
         if (getConfig().getBoolean("time.switch")) {
             Bukkit.getConsoleSender().sendMessage("§6[§eEasyHub§6] §f正在加载锁定时间...");
             timeSetTask.startTask();
+        }
+
+        if (getConfig().getBoolean("antiPluginDetect.switch")) {
+            Bukkit.getConsoleSender().sendMessage("§6[§eEasyHub§6] §f正在加载隐藏插件...");
+            Bukkit.getPluginManager().registerEvents(new DetectPluginListener(this), this);
         }
 
         Bukkit.getConsoleSender().sendMessage("§6[§eEasyHub§6] §a已加载!");

@@ -30,3 +30,18 @@ time:
   worlds:
     - "world:sun_rise"
     - "shengcun:noon"
+
+# 插件列表隐藏
+antiPluginDetect:
+  # 开关 可填 true/false
+  switch: true
+  # 需要防止的指令们
+  checkCommands:
+    - "/?"
+    - "/about"
+    - "/version"
+    - "/bukkit:?"
+    - "/bukkit:about"
+    - "/bukkit:version"
+  # 当玩家输入上方的指令时, 插件自动提示如下信息
+  message: "&aPlugins (1): &fEasyHub - By Zoyn"
