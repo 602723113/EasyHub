@@ -2,3 +2,7 @@ name: EasyHub
 main: cc.zoyn.easyhub.EasyHub
 version: 1.0.0
 author: Zoyn
+commands:
+  easyhub:
+    aliases: [eh, hub]
+    description: "牛逼"
