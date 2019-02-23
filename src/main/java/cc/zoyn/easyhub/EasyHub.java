@@ -2,11 +2,17 @@ package cc.zoyn.easyhub;
 
 import cc.zoyn.easyhub.listener.DetectPluginListener;
 import cc.zoyn.easyhub.listener.WeatherListener;
+import cc.zoyn.easyhub.task.PlayerMoveCheckTask;
 import cc.zoyn.easyhub.task.WorldTimeSetTask;
 import com.google.common.collect.Maps;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +27,10 @@ public class EasyHub extends JavaPlugin {
     private List<String> noRainWorlds;
     private Map<String, TimeType> timeSetWorlds = Maps.newHashMap();
     private WorldTimeSetTask timeSetTask;
-
+    private PlayerMoveCheckTask moveCheckTask;
+    // 出生点相关
+    private File spawnPointFile;
+    private Location spawnPoint;
 
     @Override
     public void onEnable() {
@@ -29,8 +38,11 @@ public class EasyHub extends JavaPlugin {
 
         // 配置读取
         saveDefaultConfig();
+        spawnPointFile = new File(getDataFolder(), "spawnpoint.yml");
+        saveResource("spawnpoint.yml", false);
         loadConfig();
         timeSetTask = new WorldTimeSetTask();
+        moveCheckTask = new PlayerMoveCheckTask();
 
         if (getConfig().getBoolean("weather.switch")) {
             Bukkit.getConsoleSender().sendMessage("§6[§eEasyHub§6] §f正在加载锁住晴天...");
@@ -54,6 +66,11 @@ public class EasyHub extends JavaPlugin {
         if (getConfig().getBoolean("antiPluginDetect.switch")) {
             Bukkit.getConsoleSender().sendMessage("§6[§eEasyHub§6] §f正在加载隐藏插件...");
             Bukkit.getPluginManager().registerEvents(new DetectPluginListener(this), this);
+        }
+
+        if (getConfig().getBoolean("voidReturn.switch")) {
+            Bukkit.getConsoleSender().sendMessage("§6[§eEasyHub§6] §f正在加载虚空回照(掉落虚空自动返回出生点)...");
+            moveCheckTask.startTask();
         }
 
         Bukkit.getConsoleSender().sendMessage("§6[§eEasyHub§6] §a已加载!");
@@ -80,6 +97,18 @@ public class EasyHub extends JavaPlugin {
                 timeSetWorlds.put(worldName, TimeType.valueOf(timeType));
             }
         });
+
+        // 上线地点读取
+        if (spawnPointFile != null && spawnPointFile.exists()) {
+            FileConfiguration spawnConfig = YamlConfiguration.loadConfiguration(spawnPointFile);
+            String worldName = spawnConfig.getString("spawnPoint.world", "world");
+            double x = spawnConfig.getDouble("spawnPoint.x", 0D);
+            double y = spawnConfig.getDouble("spawnPoint.y", 60D);
+            double z = spawnConfig.getDouble("spawnPoint.z", 0D);
+            float yaw = (float) spawnConfig.getDouble("spawnPoint.yaw", 0D);
+            float pitch = (float) spawnConfig.getDouble("spawnPoint.pitch", 0D);
+            spawnPoint = new Location(Bukkit.getWorld(worldName), x, y, z, yaw, pitch);
+        }
     }
 
     public List<String> getNoRainWorlds() {
@@ -90,4 +119,26 @@ public class EasyHub extends JavaPlugin {
         return timeSetWorlds;
     }
 
+    public Location getSpawnPoint() {
+        return spawnPoint;
+    }
+
+    public void setSpawnPoint(Location spawnPoint) {
+        this.spawnPoint = spawnPoint;
+    }
+
+    public void saveSpawnPoint() {
+        FileConfiguration spawnConfig = YamlConfiguration.loadConfiguration(spawnPointFile);
+        spawnConfig.set("spawnPoint.world", spawnPoint.getWorld().getName());
+        spawnConfig.set("spawnPoint.x", spawnPoint.getX());
+        spawnConfig.set("spawnPoint.y", spawnPoint.getY());
+        spawnConfig.set("spawnPoint.z", spawnPoint.getZ());
+        spawnConfig.set("spawnPoint.yaw", spawnPoint.getYaw());
+        spawnConfig.set("spawnPoint.pitch", spawnPoint.getPitch());
+        try {
+            spawnConfig.save(spawnPointFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
