@@ -31,8 +31,8 @@ public class PlayerJoinListener implements Listener {
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         Bukkit.getScheduler().runTaskLater(instance, () -> {
-            // 清理背包
-            if (clearInventory) {
+            // 清理背包, op不会清理背包
+            if (clearInventory && !player.isOp()) {
                 player.getInventory().clear();
             }
             // 治疗玩家
