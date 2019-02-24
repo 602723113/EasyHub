@@ -1,5 +1,6 @@
 package cc.zoyn.easyhub;
 
+import cc.zoyn.easyhub.command.CommandHandler;
 import cc.zoyn.easyhub.listener.DetectPluginListener;
 import cc.zoyn.easyhub.listener.WeatherListener;
 import cc.zoyn.easyhub.task.PlayerMoveCheckTask;
@@ -73,6 +74,7 @@ public class EasyHub extends JavaPlugin {
             moveCheckTask.startTask();
         }
 
+        Bukkit.getPluginCommand("easyhub").setExecutor(new CommandHandler());
         Bukkit.getConsoleSender().sendMessage("§6[§eEasyHub§6] §a已加载!");
     }
 
