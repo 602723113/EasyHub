@@ -9,9 +9,17 @@
 # Double 小数
 # Boolean 属于true和false的爸爸
 
+# 开局清空玩家背包
+# 开关 可填: true/false  默认开启
+clearInventory: true
+
+# 开局治疗玩家, 包括饱食度
+# 开关 可填: true/false  默认开启
+healPlayer: true
+
 # 强制玩家出生在出生点
 # 开关 可填: true/false 默认关闭
-forceSpawnPoint: switch: false
+forceSpawnPoint: false
 
 # 掉落至虚空自动返回在出生点
 # 开关 可填: true/false  默认开启

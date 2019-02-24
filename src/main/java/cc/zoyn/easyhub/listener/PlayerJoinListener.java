@@ -1,16 +1,50 @@
 package cc.zoyn.easyhub.listener;
 
+import cc.zoyn.easyhub.EasyHub;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-// TODO: 记得写判断和传送的代码
+/**
+ * 玩家上线时所做的一些东西
+ *
+ * @author Zoyn
+ */
 public class PlayerJoinListener implements Listener {
+
+    private static boolean clearInventory;
+    private static boolean healPlayer;
+    private static boolean forceSpawnPoint;
+    private EasyHub instance;
+
+    public PlayerJoinListener(EasyHub plugin) {
+        this.instance = plugin;
+
+        clearInventory = instance.getConfig().getBoolean("clearInventory");
+        healPlayer = instance.getConfig().getBoolean("healPlayer");
+        forceSpawnPoint = instance.getConfig().getBoolean("forceSpawnPoint");
+    }
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
+        Bukkit.getScheduler().runTaskLater(instance, () -> {
+            // 清理背包
+            if (clearInventory) {
+                player.getInventory().clear();
+            }
+            // 治疗玩家
+            if (healPlayer) {
+                player.setHealth(player.getMaxHealth());
+                player.setFoodLevel(20);
+            }
+            // 传送至出生点
+            if (forceSpawnPoint) {
+                player.teleport(instance.getSpawnPoint());
+            }
+        }, 3 * 20L);
     }
 
 }
