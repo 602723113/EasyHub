@@ -20,17 +20,19 @@
 - [ ] 取消爆炸
 - [ ] 取消旋转展示框
 - [ ] 取消死亡信息
-- [ ] 加入时清空背包
+- [x] 加入时清空背包
 - [x] 掉落虚空拉回上一个点
 ---
-3. [ ] JoinSpawn 无论下线前在何处 上线回到出生点（各个主大厅或者小游戏大厅）
-4. [ ] Damage Control 控制玩家之间的互相伤害
-5. [ ] No mob 不生成怪物
-6. [ ] JoinItem 自定义加入大厅的物品
-7. [ ] Customize Join/leave Message 自定义加入与离开的信息（不同权限不同信息）
-8. [ ] Customize /help 自定义help信息
-9. [ ] 显示/隐藏玩家（冷却）
-10. [x] Plugin hider 隐藏插件
+3. 其它类型
+- [x] HealPlayer 玩家上线自动治疗玩家 (回复血量和饱食度)
+- [ ] JoinSpawn 无论下线前在何处 上线回到出生点 (各个主大厅或者小游戏大厅)
+- [ ] Damage Control 控制玩家之间的互相伤害
+- [ ] No mob 不生成怪物
+- [ ] JoinItem 自定义加入大厅的物品
+- [ ] Customize Join/leave Message 自定义加入与离开的信息 (不同权限不同信息)
+- [ ] Customize /help 自定义help信息
+- [ ] 显示/隐藏玩家（冷却）
+- [x] Plugin hider 隐藏插件
 ---
 以下的可能不会做
 - [ ] Server Selector
