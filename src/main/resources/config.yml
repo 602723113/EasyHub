@@ -9,6 +9,18 @@
 # Double 小数
 # Boolean 属于true和false的爸爸
 
+# 清除玩家死亡信息
+# 开关 可填: true/false  默认开启
+clearDeathMessage: true
+
+# 防止玩家拾取物品
+# 开关 可填: true/false  默认开启
+preventPickupItem: true
+
+# 防止玩家旋转展示框
+# 开关 可填: true/false  默认开启
+preventInteractItemFrame: true
+
 # 开局清空玩家背包
 # 开关 可填: true/false  默认开启
 clearInventory: true
