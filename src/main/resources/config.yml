@@ -9,6 +9,13 @@
 # Double 小数
 # Boolean 属于true和false的爸爸
 
+# 强制玩家出生在出生点
+# 开关 可填: true/false 默认关闭
+forceSpawnPoint: switch: false
+
+# 掉落至虚空自动返回在出生点
+# 开关 可填: true/false  默认开启
+voidReturn: true
 
 # 无雨世界表设置
 weather:
@@ -30,16 +37,6 @@ time:
   worlds:
     - "world:noon"
     - "shengcun:day"
-
-# 强制玩家出生在出生点
-forceSpawnPoint:
-  # 开关 可填: true/false 默认关闭
-  switch: false
-
-# 掉落至虚空自动返回在出生点
-voidReturn:
-  # 开关 可填: true/false 默认开启
-  switch: true
 
 # 插件列表隐藏
 antiPluginDetect:

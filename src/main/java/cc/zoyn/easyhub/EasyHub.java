@@ -69,7 +69,7 @@ public class EasyHub extends JavaPlugin {
             Bukkit.getPluginManager().registerEvents(new DetectPluginListener(this), this);
         }
 
-        if (getConfig().getBoolean("voidReturn.switch")) {
+        if (getConfig().getBoolean("voidReturn")) {
             Bukkit.getConsoleSender().sendMessage("§6[§eEasyHub§6] §f正在加载虚空回照(掉落虚空自动返回出生点)...");
             moveCheckTask.startTask();
         }
