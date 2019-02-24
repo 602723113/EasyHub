@@ -14,13 +14,13 @@ import org.bukkit.event.player.PlayerJoinEvent;
  */
 public class PlayerJoinListener implements Listener {
 
+    private static EasyHub instance;
     private static boolean clearInventory;
     private static boolean healPlayer;
     private static boolean forceSpawnPoint;
-    private EasyHub instance;
 
     public PlayerJoinListener(EasyHub plugin) {
-        this.instance = plugin;
+        instance = plugin;
 
         clearInventory = instance.getConfig().getBoolean("clearInventory");
         healPlayer = instance.getConfig().getBoolean("healPlayer");
@@ -45,6 +45,12 @@ public class PlayerJoinListener implements Listener {
                 player.teleport(instance.getSpawnPoint());
             }
         }, 3 * 20L);
+    }
+
+    public static void reloadConfig() {
+        clearInventory = instance.getConfig().getBoolean("clearInventory");
+        healPlayer = instance.getConfig().getBoolean("healPlayer");
+        forceSpawnPoint = instance.getConfig().getBoolean("forceSpawnPoint");
     }
 
 }

@@ -1,23 +1,31 @@
 package cc.zoyn.easyhub.listener;
 
+import cc.zoyn.easyhub.EasyHub;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
-import org.bukkit.plugin.Plugin;
 
 import java.util.List;
 
+/**
+ * 该类用于监听玩家探测服务器插件时所处理的东西
+ *
+ * @author Zoyn
+ */
 public class DetectPluginListener implements Listener {
 
     private static List<String> checkPluginsCommands;
     private static String message;
+    private static EasyHub instance;
 
     /**
      * 在构造时予以初始化
      */
-    public DetectPluginListener(Plugin plugin) {
-        checkPluginsCommands = plugin.getConfig().getStringList("antiPluginDetect.checkCommands");
-        message = plugin.getConfig().getString("antiPluginDetect.message").replaceAll("&", "§");
+    public DetectPluginListener(EasyHub plugin) {
+        instance = plugin;
+
+        checkPluginsCommands = instance.getConfig().getStringList("antiPluginDetect.checkCommands");
+        message = instance.getConfig().getString("antiPluginDetect.message").replaceAll("&", "§");
     }
 
     @EventHandler
@@ -28,6 +36,11 @@ public class DetectPluginListener implements Listener {
                 event.setCancelled(true);
             }
         });
+    }
+
+    public static void reloadConfig() {
+        checkPluginsCommands = instance.getConfig().getStringList("antiPluginDetect.checkCommands");
+        message = instance.getConfig().getString("antiPluginDetect.message").replaceAll("&", "§");
     }
 
 }
