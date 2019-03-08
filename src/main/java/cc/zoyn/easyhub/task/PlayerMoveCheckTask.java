@@ -25,7 +25,7 @@ public class PlayerMoveCheckTask extends BukkitRunnable {
             Block block = location.getBlock();
 
             // 虚空掉落检查
-            if (block.getRelative(BlockFace.DOWN).getType().isSolid() || location.getY() <= 0.0D) {
+            if (!block.getRelative(BlockFace.DOWN).getType().isSolid() && location.getY() <= 0.0D) {
                 player.teleport(EasyHub.getInstance().getSpawnPoint());
             }
 
