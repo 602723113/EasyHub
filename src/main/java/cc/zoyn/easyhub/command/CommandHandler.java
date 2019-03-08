@@ -1,6 +1,7 @@
 package cc.zoyn.easyhub.command;
 
 import cc.zoyn.easyhub.command.subcommand.HelpCommand;
+import cc.zoyn.easyhub.command.subcommand.ReloadCommand;
 import cc.zoyn.easyhub.command.subcommand.SetSpawnCommand;
 import com.google.common.collect.Maps;
 import org.bukkit.Bukkit;
@@ -17,6 +18,7 @@ public class CommandHandler implements CommandExecutor {
     public CommandHandler() {
         registerCommand("setspawn", new SetSpawnCommand());
         registerCommand("help", new HelpCommand());
+        registerCommand("reload", new ReloadCommand());
     }
 
     private static void registerCommand(String subCommandName, SubCommand subCommand) {

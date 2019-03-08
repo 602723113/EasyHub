@@ -14,5 +14,6 @@ public class HelpCommand implements SubCommand {
         sender.sendMessage("&e&l&m一一一一&r &7[ &6EasyHub &7] &e&l&m一一一一");
         sender.sendMessage("§b/eh §7查看帮助");
         sender.sendMessage("§b/eh setspawn §7设置出生点");
+        sender.sendMessage("§b/eh reload §7重载插件");
     }
 }
