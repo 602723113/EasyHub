@@ -37,6 +37,21 @@ forceSpawnPoint: false
 # 开关 可填: true/false  默认开启
 voidReturn: true
 
+# 自定义帮助列表
+customHelp:
+  # 自定义帮助列表开关 可填 true/false 默认关闭
+  switch: false
+  checkCommands:
+    - "/help"
+    - "/帮助"
+    - "/h"
+  message:
+    - "&e&l&m一一一一&r &7[ &6服务器帮助列表 &7] &e&l&m一一一一"
+    - "&f输入 &a&l/help &f或 &a&l/帮助 &f你可以随时随地输入这个指令来获得帮助~"
+    - "&f输入 &a&l/spawn &f返回主城"
+    - "&f你可以输入 &a&l/xxx &f来赞助服务器哦~"
+    - "&f你知道吗? 这个插件作者的&c&lQQ群&f其实是: &a&l610350296 &f一般人我都不告诉他~"
+
 # 无雨世界表设置
 weather:
   # 无雨设置开关 可填 true/false 默认开启

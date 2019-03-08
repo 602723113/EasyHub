@@ -3,6 +3,7 @@ package cc.zoyn.easyhub;
 import cc.zoyn.easyhub.command.CommandHandler;
 import cc.zoyn.easyhub.listener.DetectPluginListener;
 import cc.zoyn.easyhub.listener.PlayerJoinListener;
+import cc.zoyn.easyhub.listener.PlayerPlayListener;
 import cc.zoyn.easyhub.listener.WeatherListener;
 import cc.zoyn.easyhub.task.PlayerMoveCheckTask;
 import cc.zoyn.easyhub.task.WorldTimeSetTask;
@@ -42,10 +43,27 @@ public class EasyHub extends JavaPlugin {
         saveDefaultConfig();
         spawnPointFile = new File(getDataFolder(), "spawnpoint.yml");
         saveResource("spawnpoint.yml", false);
-        loadConfig();
         timeSetTask = new WorldTimeSetTask();
         moveCheckTask = new PlayerMoveCheckTask();
+        loadConfig();
 
+        Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(this), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerPlayListener(this), this);
+
+        Bukkit.getPluginCommand("easyhub").setExecutor(new CommandHandler());
+        Bukkit.getConsoleSender().sendMessage("§6[§eEasyHub§6] §a已加载!");
+    }
+
+    /**
+     * 得到EasyHub实例
+     *
+     * @return {@link EasyHub}
+     */
+    public static EasyHub getInstance() {
+        return instance;
+    }
+
+    public void loadConfig() {
         if (getConfig().getBoolean("weather.switch")) {
             Bukkit.getConsoleSender().sendMessage("§6[§eEasyHub§6] §f正在加载锁住晴天...");
             // 开局变晴天
@@ -75,21 +93,6 @@ public class EasyHub extends JavaPlugin {
             moveCheckTask.startTask();
         }
 
-        Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(this), this);
-        Bukkit.getPluginCommand("easyhub").setExecutor(new CommandHandler());
-        Bukkit.getConsoleSender().sendMessage("§6[§eEasyHub§6] §a已加载!");
-    }
-
-    /**
-     * 得到EasyHub实例
-     *
-     * @return {@link EasyHub}
-     */
-    public static EasyHub getInstance() {
-        return instance;
-    }
-
-    private void loadConfig() {
         // 无雨读取
         noRainWorlds = getConfig().getStringList("weather.worlds");
         // 锁定时间读取
