@@ -30,7 +30,7 @@
 - [ ] No mob 不生成怪物
 - [ ] JoinItem 自定义加入大厅的物品
 - [ ] Customize Join/leave Message 自定义加入与离开的信息 (不同权限不同信息)
-- [ ] Customize /help 自定义help信息
+- [x] Customize /help 自定义help信息
 - [ ] 显示/隐藏玩家（冷却）
 - [x] Plugin hider 隐藏插件
 ---
