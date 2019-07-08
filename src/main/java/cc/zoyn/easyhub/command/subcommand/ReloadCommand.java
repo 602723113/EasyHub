@@ -21,6 +21,7 @@ public class ReloadCommand implements SubCommand {
         DetectPluginListener.reloadConfig();
         DamageListener.reloadConfig();
         ExplosionListener.reloadConfig();
+        BlockListener.reloadConfig();
 
         sender.sendMessage("§6[§eEasyHub§6] §a重新加载成功!");
     }

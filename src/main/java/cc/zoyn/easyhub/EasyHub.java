@@ -23,6 +23,11 @@ import java.util.Map;
  */
 public class EasyHub extends JavaPlugin {
 
+    @SuppressWarnings("unused")
+    private static final String INFORMATION = "You do not have to decompile the plugin to get the source code, this plugin has push the source code to Github, URL: https://github.com/602723113/EasyHub";
+    @SuppressWarnings("unused")
+    private static final String INFORMATION_CN = "你不必反编译本插件来获取源码, 本插件已将源码托管到Github, URL: https://github.com/602723113/EasyHub";
+
     private static EasyHub instance;
     private List<String> noRainWorlds;
     private Map<String, TimeType> timeSetWorlds = Maps.newHashMap();
@@ -48,6 +53,7 @@ public class EasyHub extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new PlayerPlayListener(this), this);
         Bukkit.getPluginManager().registerEvents(new DamageListener(this), this);
         Bukkit.getPluginManager().registerEvents(new ExplosionListener(this), this);
+        Bukkit.getPluginManager().registerEvents(new BlockListener(this), this);
 
         Bukkit.getPluginCommand("easyhub").setExecutor(new CommandHandler());
         Bukkit.getConsoleSender().sendMessage("§6[§eEasyHub§6] §a已加载!");

@@ -9,6 +9,14 @@
 # Double 小数
 # Boolean 属于true和false的爸爸
 
+# 防止玩家破坏方块
+# 开关 可填: true/false  默认开启
+preventPlayerBreakBlock: true
+
+# 防止玩家放置方块
+# 开关 可填: true/false  默认开启
+preventPlayerPlaceBlock: true
+
 # 防止玩家饱食度改变
 # 开关 可填: true/false  默认开启
 preventPlayerFoodLevelChange: true
