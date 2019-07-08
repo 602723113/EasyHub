@@ -13,6 +13,10 @@ public class SetSpawnCommand implements SubCommand {
             sender.sendMessage("§c你必须是一名玩家才能使用该指令!");
             return;
         }
+        if (!sender.isOp()) {
+            sender.sendMessage("§c权限不足!");
+            return;
+        }
         Player player = (Player) sender;
         EasyHub.getInstance().setSpawnPoint(player.getLocation());
         EasyHub.getInstance().saveSpawnPoint();
