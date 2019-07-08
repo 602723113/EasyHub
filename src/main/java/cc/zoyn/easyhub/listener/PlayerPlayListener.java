@@ -7,6 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 
@@ -23,6 +24,7 @@ public class PlayerPlayListener implements Listener {
     private static EasyHub instance;
     private static boolean clearDeathMessage;
     private static boolean preventPickupItem;
+    private static boolean preventDropItem;
     private static boolean preventInteractItemFrame;
     private static boolean preventPlayerFoodLevelChange;
     // custom help
@@ -35,6 +37,7 @@ public class PlayerPlayListener implements Listener {
 
         clearDeathMessage = instance.getConfig().getBoolean("clearDeathMessage");
         preventPickupItem = instance.getConfig().getBoolean("preventPickupItem");
+        preventDropItem = instance.getConfig().getBoolean("preventDropItem");
         preventInteractItemFrame = instance.getConfig().getBoolean("preventInteractItemFrame");
         preventPlayerFoodLevelChange = instance.getConfig().getBoolean("preventPlayerFoodLevelChange");
 
@@ -45,6 +48,14 @@ public class PlayerPlayListener implements Listener {
                 .map(s -> s.replace("&", "§"))
                 .collect(Collectors.toList());
 
+    }
+
+    // 防止玩家丢弃物品
+    @EventHandler
+    public void onItemDrop(PlayerDropItemEvent event) {
+        if (preventDropItem && !event.getPlayer().isOp()) {
+            event.setCancelled(true);
+        }
     }
 
     // 防止玩家饱食度变化
