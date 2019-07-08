@@ -16,12 +16,13 @@ public class ReloadCommand implements SubCommand {
         EasyHub.getInstance().reloadConfig();
 
         EasyHub.getInstance().loadConfig();
+        BlockListener.reloadConfig();
+        CreatureListener.reloadConfig();
+        DamageListener.reloadConfig();
+        DetectPluginListener.reloadConfig();
+        ExplosionListener.reloadConfig();
         PlayerJoinListener.reloadConfig();
         PlayerPlayListener.reloadConfig();
-        DetectPluginListener.reloadConfig();
-        DamageListener.reloadConfig();
-        ExplosionListener.reloadConfig();
-        BlockListener.reloadConfig();
 
         sender.sendMessage("§6[§eEasyHub§6] §a重新加载成功!");
     }

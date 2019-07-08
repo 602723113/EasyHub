@@ -26,7 +26,7 @@
 - [x] HealPlayer 玩家上线自动治疗玩家 (回复血量和饱食度)
 - [x] JoinSpawn 无论下线前在何处 上线回到出生点 (各个主大厅或者小游戏大厅)
 - [ ] Damage Control 控制玩家之间的互相伤害
-- [ ] No mob 不生成怪物
+- [x] No mob 不生成怪物
 - [ ] JoinItem 自定义加入大厅的物品
 - [ ] Customize Join/leave Message 自定义加入与离开的信息 (不同权限不同信息)
 - [x] Customize /help 自定义help信息

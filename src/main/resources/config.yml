@@ -9,6 +9,10 @@
 # Double 小数
 # Boolean 属于true和false的爸爸
 
+# 防止生成怪物
+# 开关 可填: true/false  默认关闭
+preventSpawnMob: false
+
 # 防止掉落物品
 # 开关 可填: true/false  默认开启
 preventDropItem: true
@@ -121,3 +125,4 @@ antiPluginDetect:
     - "/bukkit:plugins"
   # 当玩家输入上方的指令时, 插件自动提示如下信息
   message: "&fPlugins (1): &aEasyHub"
+
