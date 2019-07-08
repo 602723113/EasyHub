@@ -9,6 +9,10 @@
 # Double 小数
 # Boolean 属于true和false的爸爸
 
+# 防爆
+# 开关 可填: true/false  默认开启
+antiExplosion: true
+
 # 防止玩家恶意攻击他人
 # 开关 可填: true/false  默认开启
 preventPlayerHitOthers: true

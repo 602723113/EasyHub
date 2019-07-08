@@ -2,9 +2,7 @@ package cc.zoyn.easyhub.command.subcommand;
 
 import cc.zoyn.easyhub.EasyHub;
 import cc.zoyn.easyhub.command.SubCommand;
-import cc.zoyn.easyhub.listener.DetectPluginListener;
-import cc.zoyn.easyhub.listener.PlayerJoinListener;
-import cc.zoyn.easyhub.listener.PlayerPlayListener;
+import cc.zoyn.easyhub.listener.*;
 import org.bukkit.command.CommandSender;
 
 public class ReloadCommand implements SubCommand {
@@ -21,6 +19,9 @@ public class ReloadCommand implements SubCommand {
         PlayerJoinListener.reloadConfig();
         PlayerPlayListener.reloadConfig();
         DetectPluginListener.reloadConfig();
+        DamageListener.reloadConfig();
+        ExplosionListener.reloadConfig();
+
         sender.sendMessage("§6[§eEasyHub§6] §a重新加载成功!");
     }
 }
