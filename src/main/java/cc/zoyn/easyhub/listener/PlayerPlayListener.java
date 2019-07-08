@@ -4,6 +4,7 @@ import cc.zoyn.easyhub.EasyHub;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
@@ -23,6 +24,7 @@ public class PlayerPlayListener implements Listener {
     private static boolean clearDeathMessage;
     private static boolean preventPickupItem;
     private static boolean preventInteractItemFrame;
+    private static boolean preventPlayerFoodLevelChange;
     // custom help
     private static boolean customHelp;
     private static List<String> customHelpCheckCommands;
@@ -34,6 +36,7 @@ public class PlayerPlayListener implements Listener {
         clearDeathMessage = instance.getConfig().getBoolean("clearDeathMessage");
         preventPickupItem = instance.getConfig().getBoolean("preventPickupItem");
         preventInteractItemFrame = instance.getConfig().getBoolean("preventInteractItemFrame");
+        preventPlayerFoodLevelChange = instance.getConfig().getBoolean("preventPlayerFoodLevelChange");
 
         customHelp = instance.getConfig().getBoolean("customHelp.switch");
         customHelpCheckCommands = instance.getConfig().getStringList("customHelp.checkCommands");
@@ -42,6 +45,18 @@ public class PlayerPlayListener implements Listener {
                 .map(s -> s.replace("&", "§"))
                 .collect(Collectors.toList());
 
+    }
+
+    // 防止玩家饱食度变化
+    @EventHandler
+    public void onFoodLevelChange(FoodLevelChangeEvent event) {
+        if (preventPlayerFoodLevelChange) {
+            if (event.getFoodLevel() != 20) {
+                event.setFoodLevel(20);
+                return;
+            }
+            event.setCancelled(true);
+        }
     }
 
     // 防止玩家旋转展示框
@@ -85,6 +100,7 @@ public class PlayerPlayListener implements Listener {
         clearDeathMessage = instance.getConfig().getBoolean("clearDeathMessage");
         preventPickupItem = instance.getConfig().getBoolean("preventPickupItem");
         preventInteractItemFrame = instance.getConfig().getBoolean("preventInteractItemFrame");
+        preventPlayerFoodLevelChange = instance.getConfig().getBoolean("preventPlayerFoodLevelChange");
 
         customHelp = instance.getConfig().getBoolean("customHelp.switch");
         customHelpCheckCommands = instance.getConfig().getStringList("customHelp.checkCommands");
