@@ -9,6 +9,10 @@
 # Double 小数
 # Boolean 属于true和false的爸爸
 
+# 防止方块燃烧
+# 开关 可填: true/false  默认开启
+preventBlockBurn: true
+
 # 防止玩家破坏方块
 # 开关 可填: true/false  默认开启
 preventPlayerBreakBlock: true
