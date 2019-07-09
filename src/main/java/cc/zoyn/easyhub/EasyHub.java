@@ -94,11 +94,6 @@ public class EasyHub extends JavaPlugin {
             Bukkit.getPluginManager().registerEvents(new DetectPluginListener(this), this);
         }
 
-//        if (getConfig().getBoolean("voidReturn")) {
-//            Bukkit.getConsoleSender().sendMessage("§6[§eEasyHub§6] §f正在加载虚空回照(掉落虚空自动返回出生点)...");
-//            moveCheckTask.startTask();
-//        }
-
         // 无雨读取
         noRainWorlds = getConfig().getStringList("weather.worlds");
         // 锁定时间读取

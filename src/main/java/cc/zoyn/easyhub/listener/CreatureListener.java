@@ -20,6 +20,9 @@ public class CreatureListener implements Listener {
         instance = plugin;
 
         preventSpawnMob = instance.getConfig().getBoolean("preventSpawnMob");
+        if (preventSpawnMob) {
+            instance.getServer().getConsoleSender().sendMessage("§6[§eEasyHub§6] §f防止怪物生成已加载...");
+        }
     }
 
     @EventHandler

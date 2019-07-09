@@ -25,6 +25,15 @@ public class PlayerJoinListener implements Listener {
         clearInventory = instance.getConfig().getBoolean("clearInventory");
         healPlayer = instance.getConfig().getBoolean("healPlayer");
         forceSpawnPoint = instance.getConfig().getBoolean("forceSpawnPoint");
+        if (clearInventory) {
+            instance.getServer().getConsoleSender().sendMessage("§6[§eEasyHub§6] §f开局清空背包已加载...");
+        }
+        if (healPlayer) {
+            instance.getServer().getConsoleSender().sendMessage("§6[§eEasyHub§6] §f开局治疗玩家已加载...");
+        }
+        if (forceSpawnPoint) {
+            instance.getServer().getConsoleSender().sendMessage("§6[§eEasyHub§6] §f开局强行出生点已加载...");
+        }
     }
 
     @EventHandler

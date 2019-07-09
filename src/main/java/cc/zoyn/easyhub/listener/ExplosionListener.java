@@ -23,6 +23,9 @@ public class ExplosionListener implements Listener {
         instance = plugin;
 
         antiExplosion = instance.getConfig().getBoolean("antiExplosion");
+        if (antiExplosion) {
+            instance.getServer().getConsoleSender().sendMessage("§6[§eEasyHub§6] §f防止爆炸已加载...");
+        }
     }
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.LOWEST)

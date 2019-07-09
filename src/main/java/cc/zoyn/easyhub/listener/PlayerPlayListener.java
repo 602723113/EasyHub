@@ -48,6 +48,24 @@ public class PlayerPlayListener implements Listener {
                 .map(s -> s.replace("&", "§"))
                 .collect(Collectors.toList());
 
+        if (clearDeathMessage) {
+            instance.getServer().getConsoleSender().sendMessage("§6[§eEasyHub§6] §f清空死亡信息已加载...");
+        }
+        if (preventPickupItem) {
+            instance.getServer().getConsoleSender().sendMessage("§6[§eEasyHub§6] §f防止玩家拾取物品已加载...");
+        }
+        if (preventDropItem) {
+            instance.getServer().getConsoleSender().sendMessage("§6[§eEasyHub§6] §f防止玩家丢弃物品已加载...");
+        }
+        if (preventInteractItemFrame) {
+            instance.getServer().getConsoleSender().sendMessage("§6[§eEasyHub§6] §f防止玩家旋转展示框已加载...");
+        }
+        if (preventPlayerFoodLevelChange) {
+            instance.getServer().getConsoleSender().sendMessage("§6[§eEasyHub§6] §f防止玩家饱食度减少已加载...");
+        }
+        if (customHelp) {
+            instance.getServer().getConsoleSender().sendMessage("§6[§eEasyHub§6] §f自定义帮助信息已加载...");
+        }
     }
 
     // 防止玩家丢弃物品

@@ -28,6 +28,15 @@ public class BlockListener implements Listener {
         preventPlayerBreakBlock = instance.getConfig().getBoolean("preventPlayerBreakBlock");
         preventPlayerPlaceBlock = instance.getConfig().getBoolean("preventPlayerPlaceBlock");
         preventBlockBurn = instance.getConfig().getBoolean("preventBlockBurn");
+        if (preventPlayerBreakBlock) {
+            instance.getServer().getConsoleSender().sendMessage("§6[§eEasyHub§6] §f防止玩家破坏方块已加载...");
+        }
+        if (preventPlayerPlaceBlock) {
+            instance.getServer().getConsoleSender().sendMessage("§6[§eEasyHub§6] §f防止玩家放置方块已加载...");
+        }
+        if (preventBlockBurn) {
+            instance.getServer().getConsoleSender().sendMessage("§6[§eEasyHub§6] §f防止方块着火已加载...");
+        }
     }
 
     // 防止火焰蔓延
