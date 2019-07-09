@@ -12,9 +12,10 @@ import org.bukkit.scheduler.BukkitRunnable;
  */
 public class WorldTimeSetTask extends BukkitRunnable {
 
+    private boolean start = false;
+
     @Override
     public void run() {
-
         EasyHub.getInstance().getTimeSetWorlds().forEach((s, timeType) -> {
             World world = Bukkit.getWorld(s);
             if (world != null) {
@@ -25,6 +26,10 @@ public class WorldTimeSetTask extends BukkitRunnable {
 
     public void startTask() {
         runTaskTimer(EasyHub.getInstance(), 10L, 10 * 20L);
+        start = true;
     }
 
+    public boolean isStart() {
+        return start;
+    }
 }

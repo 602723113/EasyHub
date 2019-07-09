@@ -47,15 +47,15 @@ public class DamageListener implements Listener {
         EntityDamageEvent.DamageCause cause = event.getCause();
         if (target instanceof Player) {
             // 跌落
-            if (preventPlayerFallDamage) {
+            if (!preventPlayerFallDamage) {
                 if (cause == EntityDamageEvent.DamageCause.FALL) {
-                    event.setCancelled(true);
+                    return;
                 }
             }
             // 玩家互锤
-            if (preventPlayerHitOthers) {
+            if (!preventPlayerHitOthers) {
                 if (cause == EntityDamageEvent.DamageCause.ENTITY_ATTACK) {
-                    event.setCancelled(true);
+                    return;
                 }
             }
             // 虚空返照
@@ -68,6 +68,7 @@ public class DamageListener implements Listener {
                     target.teleport(EasyHub.getInstance().getSpawnPoint());
                 }
             }
+            event.setCancelled(true);
         }
     }
 

@@ -58,6 +58,11 @@ public class EasyHub extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage("§6[§eEasyHub§6] §a已加载!");
     }
 
+    @Override
+    public void onDisable() {
+        timeSetTask.cancel();
+    }
+
     /**
      * 得到EasyHub实例
      *
@@ -86,7 +91,9 @@ public class EasyHub extends JavaPlugin {
 
         if (getConfig().getBoolean("time.switch")) {
             Bukkit.getConsoleSender().sendMessage("§6[§eEasyHub§6] §f正在加载锁定时间...");
-            timeSetTask.startTask();
+            if (!timeSetTask.isStart()) {
+                timeSetTask.startTask();
+            }
         }
 
         if (getConfig().getBoolean("antiPluginDetect.switch")) {
@@ -117,6 +124,10 @@ public class EasyHub extends JavaPlugin {
             float pitch = (float) spawnConfig.getDouble("spawnPoint.pitch", 0D);
             spawnPoint = new Location(Bukkit.getWorld(worldName), x, y, z, yaw, pitch);
         }
+    }
+
+    public WorldTimeSetTask getTimeSetTask() {
+        return timeSetTask;
     }
 
     public List<String> getNoRainWorlds() {
