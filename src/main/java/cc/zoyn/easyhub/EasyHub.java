@@ -2,7 +2,6 @@ package cc.zoyn.easyhub;
 
 import cc.zoyn.easyhub.command.CommandHandler;
 import cc.zoyn.easyhub.listener.*;
-import cc.zoyn.easyhub.task.PlayerMoveCheckTask;
 import cc.zoyn.easyhub.task.WorldTimeSetTask;
 import com.google.common.collect.Maps;
 import org.bukkit.Bukkit;
@@ -32,7 +31,6 @@ public class EasyHub extends JavaPlugin {
     private List<String> noRainWorlds;
     private Map<String, TimeType> timeSetWorlds = Maps.newHashMap();
     private WorldTimeSetTask timeSetTask;
-    private PlayerMoveCheckTask moveCheckTask;
     // 出生点相关
     private File spawnPointFile;
     private Location spawnPoint;
@@ -46,7 +44,6 @@ public class EasyHub extends JavaPlugin {
         spawnPointFile = new File(getDataFolder(), "spawnpoint.yml");
         saveResource("spawnpoint.yml", false);
         timeSetTask = new WorldTimeSetTask();
-        moveCheckTask = new PlayerMoveCheckTask();
         loadConfig();
 
         // 事件注册
@@ -97,10 +94,10 @@ public class EasyHub extends JavaPlugin {
             Bukkit.getPluginManager().registerEvents(new DetectPluginListener(this), this);
         }
 
-        if (getConfig().getBoolean("voidReturn")) {
-            Bukkit.getConsoleSender().sendMessage("§6[§eEasyHub§6] §f正在加载虚空回照(掉落虚空自动返回出生点)...");
-            moveCheckTask.startTask();
-        }
+//        if (getConfig().getBoolean("voidReturn")) {
+//            Bukkit.getConsoleSender().sendMessage("§6[§eEasyHub§6] §f正在加载虚空回照(掉落虚空自动返回出生点)...");
+//            moveCheckTask.startTask();
+//        }
 
         // 无雨读取
         noRainWorlds = getConfig().getStringList("weather.worlds");
