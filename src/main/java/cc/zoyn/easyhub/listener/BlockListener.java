@@ -42,7 +42,10 @@ public class BlockListener implements Listener {
     @EventHandler
     public void onIgnite(BlockIgniteEvent event) {
         Player player = event.getPlayer();
-        if (preventBlockBurn && !player.isOp()) {
+        if (preventBlockBurn) {
+            if (player != null && player.isOp()) {
+                return;
+            }
             event.setCancelled(true);
         }
     }
