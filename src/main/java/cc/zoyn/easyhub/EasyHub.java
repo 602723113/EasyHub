@@ -75,10 +75,12 @@ public class EasyHub extends JavaPlugin {
             Bukkit.getConsoleSender().sendMessage("§6[§eEasyHub§6] §f正在加载锁住晴天...");
             // 开局变晴天
             Bukkit.getScheduler().runTaskLater(this, () -> Bukkit.getWorlds().forEach(world -> {
-                if (noRainWorlds.contains(world.getName())) {
-                    // 防止世界表中有地狱或者末地的情况
-                    if (world.getWeatherDuration() != 0) {
-                        world.setStorm(false);
+                if (world != null) {
+                    if (noRainWorlds.contains(world.getName())) {
+                        // 防止世界表中有地狱或者末地的情况
+                        if (world.getWeatherDuration() != 0) {
+                            world.setStorm(false);
+                        }
                     }
                 }
             }), 20L);
