@@ -53,6 +53,7 @@ public class EasyHub extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new ExplosionListener(this), this);
         Bukkit.getPluginManager().registerEvents(new BlockListener(this), this);
         Bukkit.getPluginManager().registerEvents(new CreatureListener(this), this);
+        Bukkit.getPluginManager().registerEvents(new InventoryListener(this), this);
 
         Bukkit.getPluginCommand("easyhub").setExecutor(new CommandHandler());
         Bukkit.getConsoleSender().sendMessage("§6[§eEasyHub§6] §a已加载!");

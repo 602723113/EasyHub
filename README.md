@@ -14,7 +14,7 @@
 - [x] 取消放置方块
 - [x] 取消方块燃烧
 - [x] 取消掉落物品
-- [ ] 取消物品移动
+- [x] 取消物品移动
 - [x] 取消物品拾取
 - [x] 取消爆炸
 - [x] 取消旋转展示框
@@ -27,14 +27,14 @@
 - [x] JoinSpawn 无论下线前在何处 上线回到出生点 (各个主大厅或者小游戏大厅)
 - [x] Damage Control 控制玩家之间的互相伤害
 - [x] No mob 不生成怪物
-- [ ] JoinItem 自定义加入大厅的物品 (CustomJoinItem)
 - [x] Customize Join/leave Message 自定义加入与离开的信息 (不同权限不同信息)
 - [x] Customize /help 自定义help信息
-- [ ] 显示/隐藏玩家（冷却）
 - [x] Plugin hider 隐藏插件
+- [ ] JoinItem 自定义加入大厅的物品 (CustomJoinItem)
 ---
-以下的可能不会做
+以下的**可能**不会做
 - [ ] Server Selector
 - [ ] Anti-Spam 设置禁词和打字的频率
 - [ ] LaunchPads 跳跳板（冷却）
 - [ ] Double Jump 二段跳
+- [ ] Hide Player 显示/隐藏玩家(冷却)
