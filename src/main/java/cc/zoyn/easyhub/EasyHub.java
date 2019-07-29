@@ -47,7 +47,7 @@ public class EasyHub extends JavaPlugin {
         loadConfig();
 
         // 事件注册
-        Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(this), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerJoinLeaveListener(this), this);
         Bukkit.getPluginManager().registerEvents(new PlayerPlayListener(this), this);
         Bukkit.getPluginManager().registerEvents(new DamageListener(this), this);
         Bukkit.getPluginManager().registerEvents(new ExplosionListener(this), this);
