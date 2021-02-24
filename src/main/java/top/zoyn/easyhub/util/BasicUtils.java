@@ -1,4 +1,4 @@
-package cc.zoyn.easyhub.util;
+package top.zoyn.easyhub.util;
 
 import com.google.common.collect.Lists;
 import org.bukkit.Bukkit;

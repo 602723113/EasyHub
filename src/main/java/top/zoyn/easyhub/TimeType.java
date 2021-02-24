@@ -1,4 +1,4 @@
-package cc.zoyn.easyhub;
+package top.zoyn.easyhub;
 
 /**
  * 时间枚举
@@ -7,9 +7,14 @@ package cc.zoyn.easyhub;
  */
 public enum TimeType {
 
-    SUN_RISE(23000), DAY(1000), NOON(6000), SUN_SET(11616), NIGHT(13000), MID_NIGHT(18000);
+    SUN_RISE(23000),
+    DAY(1000),
+    NOON(6000),
+    SUN_SET(11616),
+    NIGHT(13000),
+    MID_NIGHT(18000);
 
-    private int tick;
+    private final int tick;
 
     TimeType(int tick) {
         this.tick = tick;

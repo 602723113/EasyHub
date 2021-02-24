@@ -1,6 +1,6 @@
-package cc.zoyn.easyhub.listener;
+package top.zoyn.easyhub.listener;
 
-import cc.zoyn.easyhub.EasyHub;
+import top.zoyn.easyhub.EasyHub;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;

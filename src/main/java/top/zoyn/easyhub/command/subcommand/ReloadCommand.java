@@ -1,9 +1,9 @@
-package cc.zoyn.easyhub.command.subcommand;
+package top.zoyn.easyhub.command.subcommand;
 
-import cc.zoyn.easyhub.EasyHub;
-import cc.zoyn.easyhub.command.SubCommand;
-import cc.zoyn.easyhub.listener.*;
 import org.bukkit.command.CommandSender;
+import top.zoyn.easyhub.EasyHub;
+import top.zoyn.easyhub.command.SubCommand;
+import top.zoyn.easyhub.listener.*;
 
 public class ReloadCommand implements SubCommand {
 

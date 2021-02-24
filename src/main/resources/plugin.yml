@@ -1,8 +1,8 @@
 name: EasyHub
-main: cc.zoyn.easyhub.EasyHub
+main: top.zoyn.easyhub.EasyHub
 version: 1.0.0
 author: Zoyn
 commands:
   easyhub:
     aliases: [eh, hub]
-    description: "莫仕牛逼"
+    description: "The main command of easyhub"

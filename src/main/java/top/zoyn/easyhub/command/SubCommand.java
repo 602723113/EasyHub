@@ -1,4 +1,4 @@
-package cc.zoyn.easyhub.command;
+package top.zoyn.easyhub.command;
 
 import org.bukkit.command.CommandSender;
 

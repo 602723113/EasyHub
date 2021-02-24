@@ -1,6 +1,6 @@
-package cc.zoyn.easyhub.listener;
+package top.zoyn.easyhub.listener;
 
-import cc.zoyn.easyhub.EasyHub;
+import top.zoyn.easyhub.EasyHub;
 import org.bukkit.entity.Monster;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

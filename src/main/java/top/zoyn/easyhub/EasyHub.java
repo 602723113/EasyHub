@@ -1,8 +1,8 @@
-package cc.zoyn.easyhub;
+package top.zoyn.easyhub;
 
-import cc.zoyn.easyhub.command.CommandHandler;
-import cc.zoyn.easyhub.listener.*;
-import cc.zoyn.easyhub.task.WorldTimeSetTask;
+import top.zoyn.easyhub.command.CommandHandler;
+import top.zoyn.easyhub.listener.*;
+import top.zoyn.easyhub.task.WorldTimeSetTask;
 import com.google.common.collect.Maps;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -29,7 +29,7 @@ public class EasyHub extends JavaPlugin {
 
     private static EasyHub instance;
     private List<String> noRainWorlds;
-    private Map<String, TimeType> timeSetWorlds = Maps.newHashMap();
+    private final Map<String, TimeType> timeSetWorlds = Maps.newHashMap();
     private WorldTimeSetTask timeSetTask;
     // 出生点相关
     private File spawnPointFile;

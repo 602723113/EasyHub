@@ -1,6 +1,8 @@
-package cc.zoyn.easyhub.listener;
+package top.zoyn.easyhub.listener;
 
-import cc.zoyn.easyhub.EasyHub;
+import org.bukkit.entity.Player;
+import org.bukkit.event.entity.EntityPickupItemEvent;
+import top.zoyn.easyhub.EasyHub;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -107,17 +109,25 @@ public class PlayerPlayListener implements Listener {
     }
 
     // 防止玩家拾取物品
-    @EventHandler
-    public void onPickUpItem(PlayerPickupItemEvent event) {
-        if (preventPickupItem && !event.getPlayer().isOp()) {
+    public void onPickUpItem(EntityPickupItemEvent event) {
+        if (!(event.getEntity() instanceof Player)) {
+            return;
+        }
+        Player player = (Player) event.getEntity();
+        if (preventPickupItem && !player.isOp()) {
             event.setCancelled(true);
         }
     }
 
+//    public void onPickUpItem(PlayerPickupItemEvent event) {
+//        if (preventPickupItem && !event.getPlayer().isOp()) {
+//            event.setCancelled(true);
+//        }
+//    }
+
     @EventHandler
     public void onCommand(PlayerCommandPreprocessEvent event) {
         if (customHelp && !event.getPlayer().isOp()) {
-            System.out.println();
             if (customHelpCheckCommands.contains(event.getMessage())) {
                 customHelpMessage.forEach(event.getPlayer()::sendMessage);
                 event.setCancelled(true);

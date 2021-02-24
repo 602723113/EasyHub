@@ -1,6 +1,6 @@
-package cc.zoyn.easyhub.task;
+package top.zoyn.easyhub.task;
 
-import cc.zoyn.easyhub.EasyHub;
+import top.zoyn.easyhub.EasyHub;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.scheduler.BukkitRunnable;

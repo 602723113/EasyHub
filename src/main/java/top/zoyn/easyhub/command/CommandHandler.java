@@ -1,8 +1,8 @@
-package cc.zoyn.easyhub.command;
+package top.zoyn.easyhub.command;
 
-import cc.zoyn.easyhub.command.subcommand.HelpCommand;
-import cc.zoyn.easyhub.command.subcommand.ReloadCommand;
-import cc.zoyn.easyhub.command.subcommand.SetSpawnCommand;
+import top.zoyn.easyhub.command.subcommand.HelpCommand;
+import top.zoyn.easyhub.command.subcommand.ReloadCommand;
+import top.zoyn.easyhub.command.subcommand.SetSpawnCommand;
 import com.google.common.collect.Maps;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class CommandHandler implements CommandExecutor {
 
-    private static Map<String, SubCommand> subCommandMap = Maps.newHashMap();
+    private static final Map<String, SubCommand> subCommandMap = Maps.newHashMap();
 
     public CommandHandler() {
         registerCommand("setspawn", new SetSpawnCommand());

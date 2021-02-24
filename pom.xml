@@ -4,21 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cc.zoyn.easyhub</groupId>
+    <groupId>top.zoyn.easyhub</groupId>
     <artifactId>EasyHub</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <version>1.0.1</version>
+
     <packaging>jar</packaging>
 
     <properties>
@@ -27,8 +16,8 @@
 
     <repositories>
         <repository>
-            <id>elmakers-repo</id>
-            <url>http://maven.elmakers.com/repository</url>
+            <id>codemc-repo</id>
+            <url>https://repo.codemc.io/repository/nms/</url>
         </repository>
     </repositories>
 
@@ -36,13 +25,13 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.12.2-R0.1-SNAPSHOT</version>
+            <version>1.15.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot</artifactId>
-            <version>1.12.2-R0.1-SNAPSHOT</version>
+            <version>1.15.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

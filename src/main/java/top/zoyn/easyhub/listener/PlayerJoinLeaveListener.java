@@ -1,6 +1,6 @@
-package cc.zoyn.easyhub.listener;
+package top.zoyn.easyhub.listener;
 
-import cc.zoyn.easyhub.EasyHub;
+import top.zoyn.easyhub.EasyHub;
 import com.google.common.collect.Maps;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
@@ -12,7 +12,6 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * 玩家上线时所做的一些东西
@@ -28,8 +27,8 @@ public class PlayerJoinLeaveListener implements Listener {
 
     private static boolean customJoinLeaveMessage;
     // 对应关系 权限节点 -> 一串信息
-    private static Map<String, List<String>> joinMessage = Maps.newHashMap();
-    private static Map<String, List<String>> leaveMessage = Maps.newHashMap();
+    private static final Map<String, List<String>> joinMessage = Maps.newHashMap();
+    private static final Map<String, List<String>> leaveMessage = Maps.newHashMap();
 
     public PlayerJoinLeaveListener(EasyHub plugin) {
         instance = plugin;
